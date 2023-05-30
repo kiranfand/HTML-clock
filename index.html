@@ -1,0 +1,98 @@
+<! DOCTYPE html>  
+<html lang = "en">  
+<head>  
+  <meta charset = "UTF-8">  
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">  
+  <meta http-equiv = "X-UA-Compatible" content = "ie=edge">  
+  <title>ClockX</title>  
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"> </script>  
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"> </script>   
+<style>  
+body {   
+  text-align: center;  
+  padding: 20px;  
+background-color: #F8F9FA;  
+background-size: 1800% 1800%;  
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+-webkit-animation: rainbow 18s ease infinite;  
+-z-animation: rainbow 18s ease infinite;  
+-o-animation: rainbow 18s ease infinite;  
+  animation: rainbow 18s ease infinite; }  
+h1  {  
+  line-height: 2em;   
+  padding-bottom: 5px;  
+  text-transform: none;  
+  font-size: 1.7em;  
+ font-weight: bold;  
+  font-style: italic;  
+ font-family: "Lucida Console", "Courier New", monospace;  
+  color: #999;   
+  letter-spacing: -0.005em;  
+  word-spacing: 1px;  
+  letter-spacing: none;  
+}  
+h2  {  
+  margin-top: 40px;  
+  text-transform: none;  
+  font-size: 1.75em;  
+  font-weight: bold;  
+  font-family: "Lucida Console", "Courier New", monospace;  
+  color: #999;   
+  letter-spacing: -0.005em;   
+  word-spacing: 1px;  
+  letter-spacing: none;  
+}  
+@keyframes example {
+    0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: rgb(0, 153, 255);}
+  100% {background-color: green;
+color: white;}
+  
+}
+.clock {  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: rgba(0, 174, 255, 0.473);
+    border:5px solid black;
+    border-radius: 1cm;
+    position: absolute;  
+    top: 50%;  
+    left: 50%;  
+     padding-top: 15px;  
+    transform: translateX(-50%) translateY(-50%);  
+    color: #000000;  
+    font-size: 60px;  
+    font-family: Orbitron;  
+    letter-spacing: 7px;  
+    animation-name: example;
+  animation-duration: 60s;;
+}  
+</style>  
+<body>  
+<div id = "MyClockDisplay" class = "clock" onload = "showTime()"> </div>  
+<script>  
+function showTime(){  
+    var date = new Date();  
+    var h = date.getHours();  
+    var m = date.getMinutes();  
+    var s = date.getSeconds();  
+    var session = "AM";  
+    if(h == 0) {  
+        h = 12;  
+    }  
+    if(h > 12) {  
+        hh = h - 12;  
+        session = "PM";  
+    }  
+    h = (h < 10) ? "0" + h : h;  
+    m = (m < 10) ? "0" + m : m;  
+    s = (s < 10) ? "0" + s : s;  
+    var time = h + ":" + m + ":" + s + " " + session;  
+    document.getElementById("MyClockDisplay").innerText = time;  
+    document.getElementById("MyClockDisplay").textContent = time;  
+    setTimeout(showTime, 1000);  
+}  
+showTime();  
+</script>  
+</body>  
+</html>  
